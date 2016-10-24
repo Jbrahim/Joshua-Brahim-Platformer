@@ -210,7 +210,9 @@ Player.prototype.moveY = function(step, level, keys) {
   var motion = new Vector(0, this.speed.y * step);
   var newPos = this.pos.plus(motion);
   var obstacle = level.obstacleAt(newPos, this.size);
-  if (obstacle){  
+  if (obstacle == "lava"){  
+	this.pos = new Vector(8,5);
+  } else if (obstacle) {
 	if (keys.up && this.speed.y > 0)
 		this.speed.y = -jumpSpeed;
 	else 
